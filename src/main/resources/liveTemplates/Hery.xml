@@ -1,0 +1,170 @@
+<templateSet group="HERY">
+    <template name="hery"
+             value="---&#10;_type: $TYPE$&#10;_meta:&#10;  name: $NAME$&#10;  description: $DESC$&#10;  tags:&#10;    - $TAG$&#10;_body:&#10;  $END$"
+             description="New HERY entity"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="TYPE" expression="" defaultValue="&quot;amadla.org/entity/application@v1.0.0&quot;" alwaysStopAt="true"/>
+        <variable name="NAME" expression="" defaultValue="&quot;MyEntity&quot;" alwaysStopAt="true"/>
+        <variable name="DESC" expression="" defaultValue="&quot;Description&quot;" alwaysStopAt="true"/>
+        <variable name="TAG" expression="" defaultValue="&quot;tag&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="hery-min"
+             value="---&#10;_type: $TYPE$&#10;_body:&#10;  $END$"
+             description="Minimal HERY entity"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="TYPE" expression="" defaultValue="&quot;amadla.org/entity/application@v1.0.0&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="hery-extends"
+             value="---&#10;_type: $TYPE$&#10;_extends: $EXTENDS$&#10;_meta:&#10;  name: $NAME$&#10;  description: $DESC$&#10;_body:&#10;  $END$"
+             description="HERY entity with inheritance"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="TYPE" expression="" defaultValue="&quot;amadla.org/entity/application@v1.0.0&quot;" alwaysStopAt="true"/>
+        <variable name="EXTENDS" expression="" defaultValue="&quot;github.com/AmadlaOrg/EntityApplication@v1.0.0&quot;" alwaysStopAt="true"/>
+        <variable name="NAME" expression="" defaultValue="&quot;MyEntity&quot;" alwaysStopAt="true"/>
+        <variable name="DESC" expression="" defaultValue="&quot;Description&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="hery-requires"
+             value="---&#10;_type: $TYPE$&#10;_requires:&#10;  - $REQ$&#10;_body:&#10;  $END$"
+             description="HERY entity with dependencies"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="TYPE" expression="" defaultValue="&quot;amadla.org/entity/application@v1.0.0&quot;" alwaysStopAt="true"/>
+        <variable name="REQ" expression="" defaultValue="&quot;amadla.org/entity/package@v1.0.0&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="hery-full"
+             value="---&#10;_type: $TYPE$&#10;_extends: $EXTENDS$&#10;_meta:&#10;  name: $NAME$&#10;  description: $DESC$&#10;  category: $CAT$&#10;  tags:&#10;    - $TAG$&#10;_requires:&#10;  - $REQ$&#10;_body:&#10;  $END$"
+             description="Full HERY entity with all reserved properties"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="TYPE" expression="" defaultValue="&quot;amadla.org/entity/application@v1.0.0&quot;" alwaysStopAt="true"/>
+        <variable name="EXTENDS" expression="" defaultValue="&quot;github.com/AmadlaOrg/EntityApplication@v1.0.0&quot;" alwaysStopAt="true"/>
+        <variable name="NAME" expression="" defaultValue="&quot;MyEntity&quot;" alwaysStopAt="true"/>
+        <variable name="DESC" expression="" defaultValue="&quot;Description&quot;" alwaysStopAt="true"/>
+        <variable name="CAT" expression="" defaultValue="&quot;Application&quot;" alwaysStopAt="true"/>
+        <variable name="TAG" expression="" defaultValue="&quot;tag&quot;" alwaysStopAt="true"/>
+        <variable name="REQ" expression="" defaultValue="&quot;amadla.org/entity/package@v1.0.0&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="hery-package"
+             value="---&#10;_type: amadla.org/entity/package@v1.0.0&#10;_body:&#10;  manager: $MANAGER$&#10;  update: $UPDATE$&#10;  packages:&#10;    - $PKG$"
+             description="Package entity"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="MANAGER" expression="enum(&quot;auto&quot;,&quot;apt&quot;,&quot;yum&quot;,&quot;dnf&quot;,&quot;pacman&quot;,&quot;brew&quot;,&quot;apk&quot;)" defaultValue="&quot;auto&quot;" alwaysStopAt="true"/>
+        <variable name="UPDATE" expression="enum(&quot;true&quot;,&quot;false&quot;)" defaultValue="&quot;true&quot;" alwaysStopAt="true"/>
+        <variable name="PKG" expression="" defaultValue="&quot;package-name&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="hery-template"
+             value="---&#10;_type: amadla.org/entity/template@v1.0.0&#10;_requires:&#10;  - $REQ$&#10;_body:&#10;  engine: $ENGINE$&#10;  source: $SOURCE$&#10;  output: $OUTPUT$&#10;  description: $DESC$"
+             description="Template entity for weaver"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="REQ" expression="" defaultValue="&quot;amadla.org/entity/application@v1.0.0&quot;" alwaysStopAt="true"/>
+        <variable name="ENGINE" expression="enum(&quot;go&quot;,&quot;jinja2&quot;,&quot;mustache&quot;,&quot;qute&quot;,&quot;freemarker&quot;)" defaultValue="&quot;go&quot;" alwaysStopAt="true"/>
+        <variable name="SOURCE" expression="" defaultValue="&quot;template.conf.tmpl&quot;" alwaysStopAt="true"/>
+        <variable name="OUTPUT" expression="" defaultValue="&quot;/etc/app/config.conf&quot;" alwaysStopAt="true"/>
+        <variable name="DESC" expression="" defaultValue="&quot;Template description&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="hery-vm"
+             value="---&#10;_type: amadla.org/entity/infrastructure/vm@v1.0.0&#10;_body:&#10;  provider: $PROVIDER$&#10;  name: $NAME$&#10;  cpus: $CPUS$&#10;  memory: $MEMORY$&#10;  disk: $DISK$&#10;  box: $BOX$&#10;  network:&#10;    type: $NET$"
+             description="VM infrastructure entity"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="PROVIDER" expression="enum(&quot;libvirt&quot;,&quot;virtualbox&quot;,&quot;wsl&quot;)" defaultValue="&quot;libvirt&quot;" alwaysStopAt="true"/>
+        <variable name="NAME" expression="" defaultValue="&quot;my-vm&quot;" alwaysStopAt="true"/>
+        <variable name="CPUS" expression="" defaultValue="&quot;2&quot;" alwaysStopAt="true"/>
+        <variable name="MEMORY" expression="" defaultValue="&quot;2048&quot;" alwaysStopAt="true"/>
+        <variable name="DISK" expression="" defaultValue="&quot;20G&quot;" alwaysStopAt="true"/>
+        <variable name="BOX" expression="" defaultValue="&quot;ubuntu-24.04&quot;" alwaysStopAt="true"/>
+        <variable name="NET" expression="enum(&quot;nat&quot;,&quot;bridged&quot;,&quot;hostonly&quot;)" defaultValue="&quot;nat&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="_type"
+             value="_type: $TYPE$"
+             description="HERY _type property"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="TYPE" expression="" defaultValue="&quot;amadla.org/entity/application@v1.0.0&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="_extends"
+             value="_extends: $URI$"
+             description="HERY _extends property"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="URI" expression="" defaultValue="&quot;github.com/AmadlaOrg/EntityApplication@v1.0.0&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="_meta"
+             value="_meta:&#10;  name: $NAME$&#10;  description: $DESC$&#10;  tags:&#10;    - $TAG$"
+             description="HERY _meta block"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="NAME" expression="" defaultValue="&quot;Name&quot;" alwaysStopAt="true"/>
+        <variable name="DESC" expression="" defaultValue="&quot;Description&quot;" alwaysStopAt="true"/>
+        <variable name="TAG" expression="" defaultValue="&quot;tag&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="_body"
+             value="_body:&#10;  $END$"
+             description="HERY _body block"
+             toReformat="false"
+             toShortenFQNames="false">
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+
+    <template name="_requires"
+             value="_requires:&#10;  - $URI$"
+             description="HERY _requires block"
+             toReformat="false"
+             toShortenFQNames="false">
+        <variable name="URI" expression="" defaultValue="&quot;amadla.org/entity/package@v1.0.0&quot;" alwaysStopAt="true"/>
+        <context>
+            <option name="HERY" value="true"/>
+        </context>
+    </template>
+</templateSet>

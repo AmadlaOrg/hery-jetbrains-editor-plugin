@@ -1,0 +1,19 @@
+<list>
+    <option name="HERY_RESERVED_PROPERTY">
+        <value>
+            <option name="FOREGROUND" value="000080"/>
+            <option name="FONT_TYPE" value="1"/>
+        </value>
+    </option>
+    <option name="HERY_ENTITY_URI">
+        <value>
+            <option name="FOREGROUND" value="660099"/>
+        </value>
+    </option>
+    <option name="HERY_VERSION">
+        <value>
+            <option name="FOREGROUND" value="008000"/>
+            <option name="FONT_TYPE" value="1"/>
+        </value>
+    </option>
+</list>

@@ -1,0 +1,99 @@
+<idea-plugin>
+    <id>org.amadla.hery</id>
+    <name>HERY</name>
+    <version>0.1.0</version>
+    <vendor email="support@amadla.org" url="https://github.com/AmadlaOrg">Amadla</vendor>
+
+    <description><![CDATA[
+    Language support for <b>HERY</b> (Hierarchical Entity Relational YAML) files.
+
+    <h3>Features</h3>
+    <ul>
+        <li>File type recognition for <code>.hery</code> files</li>
+        <li>Syntax highlighting — reserved properties (<code>_type</code>, <code>_extends</code>, <code>_meta</code>, <code>_body</code>, <code>_requires</code>), entity URIs, version constraints</li>
+        <li>Code completion for reserved properties and entity URI patterns</li>
+        <li>Live templates for common entity patterns</li>
+        <li>Structure view for HERY documents</li>
+        <li>Validation/inspection for reserved property usage</li>
+        <li>Brace matching, commenting, folding</li>
+    </ul>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h3>0.1.0</h3>
+    <ul>
+        <li>Initial release</li>
+        <li>File type, syntax highlighting, completion, live templates, inspections</li>
+    </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- File Type -->
+        <fileType
+                name="HERY"
+                implementationClass="org.amadla.hery.HeryFileType"
+                fieldName="INSTANCE"
+                language="hery"
+                extensions="hery"/>
+
+        <!-- Language -->
+        <lang.parserDefinition
+                language="hery"
+                implementationClass="org.amadla.hery.HeryParserDefinition"/>
+
+        <!-- Syntax Highlighting -->
+        <lang.syntaxHighlighterFactory
+                language="hery"
+                implementationClass="org.amadla.hery.HerySyntaxHighlighterFactory"/>
+
+        <colorSettingsPage
+                implementation="org.amadla.hery.HeryColorSettingsPage"/>
+
+        <additionalTextAttributes
+                scheme="Default"
+                file="colorSchemes/HeryDefault.xml"/>
+
+        <additionalTextAttributes
+                scheme="Darcula"
+                file="colorSchemes/HeryDarcula.xml"/>
+
+        <!-- Code Completion -->
+        <completion.contributor
+                language="hery"
+                implementationClass="org.amadla.hery.HeryCompletionContributor"/>
+
+        <!-- Commenter -->
+        <lang.commenter
+                language="hery"
+                implementationClass="org.amadla.hery.HeryCommenter"/>
+
+        <!-- Brace Matcher -->
+        <lang.braceMatcher
+                language="hery"
+                implementationClass="org.amadla.hery.HeryBraceMatcher"/>
+
+        <!-- Folding -->
+        <lang.foldingBuilder
+                language="hery"
+                implementationClass="org.amadla.hery.HeryFoldingBuilder"/>
+
+        <!-- Structure View -->
+        <lang.psiStructureViewFactory
+                language="hery"
+                implementationClass="org.amadla.hery.HeryStructureViewFactory"/>
+
+        <!-- Annotation / Inspection -->
+        <annotator
+                language="hery"
+                implementationClass="org.amadla.hery.HeryAnnotator"/>
+
+        <!-- Live Templates -->
+        <defaultLiveTemplates file="/liveTemplates/Hery.xml"/>
+        <liveTemplateContext
+                implementation="org.amadla.hery.HeryLiveTemplateContext"
+                contextId="HERY"/>
+    </extensions>
+</idea-plugin>
