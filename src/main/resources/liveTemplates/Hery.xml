@@ -81,7 +81,7 @@
     </template>
 
     <template name="hery-template"
-             value="---&#10;_type: amadla.org/entity/template@v1.0.0&#10;_requires:&#10;  - $REQ$&#10;_body:&#10;  engine: $ENGINE$&#10;  source: $SOURCE$&#10;  output: $OUTPUT$&#10;  description: $DESC$"
+             value="---&#10;_type: amadla.org/entity/template@v1.0.0&#10;_requires:&#10;  - $REQ$&#10;_body:&#10;  engine: $ENGINE$&#10;  source: $SOURCE$&#10;  output: $OUTPUT$&#10;  entity_types:&#10;    - $ENTITY_TYPE$"
              description="Template entity for weaver"
              toReformat="false"
              toShortenFQNames="false">
@@ -89,7 +89,7 @@
         <variable name="ENGINE" expression="enum(&quot;go&quot;,&quot;jinja2&quot;,&quot;mustache&quot;,&quot;qute&quot;,&quot;freemarker&quot;)" defaultValue="&quot;go&quot;" alwaysStopAt="true"/>
         <variable name="SOURCE" expression="" defaultValue="&quot;template.conf.tmpl&quot;" alwaysStopAt="true"/>
         <variable name="OUTPUT" expression="" defaultValue="&quot;/etc/app/config.conf&quot;" alwaysStopAt="true"/>
-        <variable name="DESC" expression="" defaultValue="&quot;Template description&quot;" alwaysStopAt="true"/>
+        <variable name="ENTITY_TYPE" expression="" defaultValue="&quot;amadla.org/entity/application@^v1.0.0&quot;" alwaysStopAt="true"/>
         <context>
             <option name="HERY" value="true"/>
         </context>
